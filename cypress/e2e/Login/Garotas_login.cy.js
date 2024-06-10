@@ -1,6 +1,6 @@
 import { loginSelectors} from '../../support/selectors/loginSelectors.js';
 import proyectoGarotas from "../../support/POM/garotas_POM.js"
-import proyectoGarotasStage from "../../support/POM/garotas_live.js"
+import proyectoGarotasStage from "../../support/POM/garotas_stage.js"
 
 
 
@@ -48,6 +48,24 @@ describe('Login', () => {
 
     })
 
+    it.only("Login person with existent user Vendedor Salon", () => {
+      cy.get(loginSelectors.loginUrl).click();
+      live.loginExistentUserVendedorSalon("noelia+40@kadabrait.net", "Test123!", 3000) //POM
+      cy.get(loginSelectors.loginButton).click();
+      cy.wait(1000)
+      cy.contains('Bienvenido').should('be.visible')    
+
+    })
+
+    it.only("Login person with existent user Vendedor Telefonico", () => {
+      cy.get(loginSelectors.loginUrl).click();
+      live.loginExistentUserVendedorTel("noelia+78@kadabrait.net", "Test123!", 3000) //POM
+      cy.get(loginSelectors.loginButton).click();
+      cy.wait(1000)
+      cy.contains('Bienvenido').should('be.visible')    
+
+    })
+
     it("Login person with no existent user", () => {
       cy.get(loginSelectors.loginUrl).click();
       live.loginNotExistentUser("noelia+56@kadabrait.net", "Test123!", 3000) //POM
@@ -66,7 +84,7 @@ describe('Login', () => {
 
     })
 
-    it.only("Login person with incorrect user", () => {
+    it("Login person with incorrect user", () => {
       cy.get(loginSelectors.loginUrl).click();
       live.loginIncorrectEmail("noeliakadabrait.net", "Test1288!", 3000) //POM
       cy.wait(1000)

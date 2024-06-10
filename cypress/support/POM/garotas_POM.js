@@ -31,6 +31,20 @@ class proyectoGarotas{
       
     }
 
+    loginExistentUserVendedorSalon(emailField,passwordField,t){
+        let tiempo = t
+      cy.get("#email").type(emailField);
+      cy.get("#pass").type(passwordField);
+      
+    }
+
+    loginExistentUserVendedorTel(emailField,passwordField,t){
+        let tiempo = t
+      cy.get("#email").type(emailField);
+      cy.get("#pass").type(passwordField);
+      
+    }
+
     loginNotExistentUser(emailField,passwordField,t){
         let tiempo = t
       cy.get("#email").type(emailField);
