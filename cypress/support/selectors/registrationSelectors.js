@@ -7,8 +7,9 @@ export const registrationSelectors ={
     emailField:"#email_address",
     passwordField: "#password",
     confirmPasswordField:"#password-confirmation",
-    cellphoneField: "#address\:mobile",
+    cellphone: ".field field-address:mobile",
     addressField: "#street_1",
+    departmentField: "#region_id"
     
 
 

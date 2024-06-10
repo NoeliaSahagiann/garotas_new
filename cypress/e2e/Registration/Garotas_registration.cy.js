@@ -1,10 +1,12 @@
 import { registrationSelectors } from '../../support/selectors/registrationSelectors.js';
+import proyectoGarotas from "../../support/POM/garotas_POM.js"
+
 
 describe('Registration', () => {
-    beforeEach(()=>{
-        cy.visit("https://47e0ceafa4.nxcli.net")
+   
+    const live=new proyectoGarotas();
+    live.visitHomePage();
 
-    })
         it("Registration persona", () => {
       cy.get(registrationSelectors.loginUrl).click();
       cy.get(registrationSelectors.createAccountBtn).click();
@@ -14,8 +16,10 @@ describe('Registration', () => {
       cy.get(registrationSelectors.emailField).type("test@test.com");
       cy.get(registrationSelectors.passwordField).type("Test123!");
       cy.get(registrationSelectors.confirmPasswordField).type("Test123!");
-      cy.get(registrationSelectors.cellphoneField).type("099082950");
+      cy.wait(3000)
+      cy.get(registrationSelectors.cellphone).type("099082950");
       cy.get(registrationSelectors.addressField).type("Test 123");
+      cy.get(registrationSelectors.departmentField).select("490")
 
 
 
